@@ -117,7 +117,7 @@
       display: inline-flex;
       flex-direction: column;
       gap: 14px;
-      margin: 48px auto 36px;
+      margin: 48px auto 56px;
       text-align: left;
     }
     .hero-meta-item {
@@ -138,7 +138,7 @@
       min-width: 52px;
     }
 
-    .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-group { display: flex; flex-direction: column; gap: 12px; align-items: center; }
     .btn {
       display: inline-block;
       padding: 14px 36px;
@@ -160,15 +160,14 @@
     .section-inner { max-width: 860px; margin: 0 auto; }
     .section-label {
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.1em;
       color: var(--primary);
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       display: inline-block;
       background: var(--accent2);
-      padding: 3px 14px;
+      padding: 5px 18px;
       border-radius: 2px;
     }
     .section-title {
@@ -485,6 +484,73 @@
       letter-spacing: 0.06em;
     }
 
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 16px; right: 16px;
+      z-index: 100;
+    }
+    .nav-toggle {
+      width: 48px; height: 48px;
+      background: var(--primary);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 4px 16px rgba(0,87,184,0.3);
+      transition: background 0.2s;
+    }
+    .nav-toggle:hover { background: #003f8a; }
+    .nav-toggle span {
+      display: block;
+      width: 20px; height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    /* 開いた時のX形 */
+    .nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 56px; right: 0;
+      background: white;
+      border: 1.5px solid #dde4ee;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,87,184,0.12);
+      overflow: hidden;
+      min-width: 180px;
+    }
+    .nav.open .nav-menu { display: block; }
+    .nav-links {
+      list-style: none;
+      padding: 8px 0;
+    }
+    .nav-links li a {
+      display: block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 12px 20px;
+      letter-spacing: 0.06em;
+      transition: background 0.15s;
+    }
+    .nav-links li a:hover {
+      background: var(--light);
+    }
+    .nav-links li:not(:last-child) {
+      border-bottom: 1px solid #eef2f8;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 600px) {
       .hero { padding: 60px 20px 50px; }
@@ -495,6 +561,25 @@
   </style>
 </head>
 <body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <button class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="メニュー">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="nav-menu">
+    <ul class="nav-links">
+      <li><a href="#" onclick="document.getElementById('nav').classList.remove('open')">トップに戻る</a></li>
+      <li><a href="#about" onclick="document.getElementById('nav').classList.remove('open')">このセミナーについて</a></li>
+      <li><a href="#speakers" onclick="document.getElementById('nav').classList.remove('open')">講師紹介</a></li>
+      <li><a href="#program" onclick="document.getElementById('nav').classList.remove('open')">プログラム</a></li>
+      <li><a href="#fee" onclick="document.getElementById('nav').classList.remove('open')">参加費</a></li>
+      <li><a href="#venue" onclick="document.getElementById('nav').classList.remove('open')">会場案内</a></li>
+    </ul>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -553,7 +638,7 @@
     <div class="hero-meta">
       <div class="hero-meta-item">
         <span>日時</span>
-        2025年8月1日（金）13:30〜17:00
+        2026年8月1日（金）13:30〜17:00
       </div>
       <div class="hero-meta-item">
         <span>会場</span>
@@ -565,17 +650,16 @@
       </div>
     </div>
     <div class="btn-group">
-      <a href="#apply" class="btn btn-primary">参加申し込みはこちら</a>
       <a href="#program" class="btn btn-secondary">プログラムを見る</a>
+      <a href="https://forms.gle/eXwaQMto6j9qzfmk6" class="btn btn-primary">参加申し込みはこちら</a>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about">
+<section class="about" id="about">
   <div class="section-inner">
-    <div class="section-label">About</div>
-    <h2 class="section-title">このセミナーについて</h2>
+    <div class="section-label">このセミナーについて</div>
     <p class="about-text">
       愛媛×長崎、公立×私立という異なる"現場のリアル"を持つ2人の講師が、
       授業づくり・学級経営・探究・教師としての姿勢など、現場での試行錯誤から見えてきた実践や、
@@ -596,10 +680,9 @@
 </section>
 
 <!-- SPEAKERS -->
-<section class="speakers">
+<section class="speakers" id="speakers">
   <div class="section-inner">
-    <div class="section-label">Speakers</div>
-    <h2 class="section-title">講師紹介</h2>
+    <div class="section-label">講師紹介</div>
     <div class="speakers-grid">
       <div class="speaker-card">
         <div class="speaker-avatar">
@@ -630,8 +713,7 @@
 <!-- PROGRAM -->
 <section class="program" id="program">
   <div class="section-inner">
-    <div class="section-label">Program</div>
-    <h2 class="section-title">プログラム</h2>
+    <div class="section-label">プログラム</div>
     <div class="program-list">
       <div class="program-item">
         <div class="program-time">13:30〜13:40</div>
@@ -700,10 +782,9 @@
 </section>
 
 <!-- PRICE -->
-<section class="price" id="apply">
+<section class="price" id="fee">
   <div class="section-inner">
-    <div class="section-label">Fee</div>
-    <h2 class="section-title">参加費</h2>
+    <div class="section-label">参加費</div>
     <table class="price-table">
       <thead>
         <tr>
@@ -763,29 +844,28 @@
     </table>
     <p class="price-note">
       ※ 懇親会は別途費用が必要です。<br>
-      ※ お申し込みフォームのリンクは近日公開予定です。
+      ※ 下のボタンまたは上記リンクよりお申し込みください。
     </p>
   </div>
 </section>
 
 <!-- VENUE -->
-<section class="venue">
+<section class="venue" id="venue">
   <div class="section-inner">
-    <div class="section-label">Venue</div>
-    <h2 class="section-title">会場案内</h2>
+    <div class="section-label">会場案内</div>
     <div class="venue-box">
       <div class="venue-info">
         <h3>テクスポート今治　2階会議室</h3>
         <dl>
           <dt>Date</dt>
-          <dd>2025年8月1日（金）</dd>
+          <dd>2026年8月1日（金）</dd>
           <dt>Time</dt>
           <dd>13:30〜17:00（開場 13:15）</dd>
           <dt>After Party</dt>
           <dd>夜：懇親会（本編）</dd>
         </dl>
       </div>
-      <div class="venue-map">地図は近日公開予定</div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.311791034507!2d133.01370257452487!3d34.06152077315348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35503a771050c38f%3A0x66fa59d018d3f869!2z44OG44Kv44K544Od44O844OI5LuK5rK7!5e0!3m2!1sja!2sjp!4v1780926324978!5m2!1sja!2sjp" width="100%" height="280" style="border:0; border-radius:4px; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -821,13 +901,13 @@
   <div class="section-inner">
     <h2>現場のリアルを持ち寄り、<br>ともにアップデートしよう。</h2>
     <p>参加者の皆さんと一緒につくる学びの場です。ぜひご参加ください。</p>
-    <a href="#" class="btn btn-white">参加申し込みはこちら（近日公開）</a>
+    <a href="https://forms.gle/eXwaQMto6j9qzfmk6" class="btn btn-white">参加申し込みはこちら</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>第2回 教育実践「アップデートセミナー」 &copy; 2025</p>
+  <p>第2回 教育実践「アップデートセミナー」 &copy; 2026</p>
 </footer>
 
 </body>
