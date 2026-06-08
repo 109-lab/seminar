@@ -331,33 +331,59 @@
 
     /* ===== PRICE ===== */
     .price { background: white; }
-    .price-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
       margin-bottom: 24px;
-    }
-    .price-card {
-      border-radius: 4px;
-      padding: 32px 20px;
-      text-align: center;
-    }
-    .price-card.general { background: var(--primary); color: white; box-shadow: 0 8px 24px rgba(0,87,184,0.25); }
-    .price-card.student { background: var(--light); color: var(--primary); border: 2px solid var(--accent); }
-    .price-card.online { background: var(--accent2); color: #003f8a; border: 2px solid #d4b800; }
-    .price-card-label {
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-      letter-spacing: 0.1em;
-      opacity: 0.85;
     }
-    .price-card-amount {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 2.2rem;
+    .price-table thead tr {
+      background: var(--primary);
+      color: white;
+    }
+    .price-table thead th {
+      padding: 12px 16px;
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.1em;
+      text-align: left;
+    }
+    .price-table thead th:last-child { text-align: right; }
+    .price-table tbody tr {
+      border-bottom: 1px solid #dde4ee;
+      transition: background 0.15s;
+    }
+    .price-table tbody tr:hover { background: var(--light); }
+    .price-table tbody td {
+      padding: 16px;
+      font-size: 0.95rem;
+      color: var(--text);
+      vertical-align: middle;
+    }
+    .price-table tbody td:last-child {
+      text-align: right;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .price-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 2px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .price-badge.sale { background: #ffe600; color: #0057b8; }
+    .price-badge.limit { background: #e8f0fb; color: var(--primary); border: 1px solid #bfcfe8; }
+    .price-name { font-weight: 700; }
+    .price-desc {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-top: 3px;
     }
     .price-note {
       font-family: 'Noto Sans JP', sans-serif;
@@ -678,20 +704,63 @@
   <div class="section-inner">
     <div class="section-label">Fee</div>
     <h2 class="section-title">参加費</h2>
-    <div class="price-cards">
-      <div class="price-card general">
-        <div class="price-card-label">一　般</div>
-        <div class="price-card-amount">¥1,500</div>
-      </div>
-      <div class="price-card student">
-        <div class="price-card-label">学　生</div>
-        <div class="price-card-amount">¥1,000</div>
-      </div>
-      <div class="price-card online">
-        <div class="price-card-label">映像配信</div>
-        <div class="price-card-amount">¥3,000</div>
-      </div>
-    </div>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>チケット種別</th>
+          <th style="text-align:right;">料金</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="price-name">通常チケット</div>
+          </td>
+          <td>¥2,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="price-name">早割チケット<span class="price-badge sale">6月中</span></div>
+            <div class="price-desc">6月末までの申し込みで割引</div>
+          </td>
+          <td>¥1,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="price-name">ペア割チケット</div>
+            <div class="price-desc">2名での申し込み</div>
+          </td>
+          <td>¥3,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="price-name">最前列付チケット</div>
+            <div class="price-desc">最前列席を確約</div>
+          </td>
+          <td>¥2,500</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="price-name">ライトニングトーク付チケット<span class="price-badge limit">残3名</span></div>
+            <div class="price-desc">5分間の発表＋講師2名からのフィードバックあり</div>
+          </td>
+          <td>¥3,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="price-name">学生チケット</div>
+          </td>
+          <td>¥1,000</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="price-name">映像配信</div>
+            <div class="price-desc">当日参加できない方向け</div>
+          </td>
+          <td>¥3,000</td>
+        </tr>
+      </tbody>
+    </table>
     <p class="price-note">
       ※ 懇親会は別途費用が必要です。<br>
       ※ お申し込みフォームのリンクは近日公開予定です。
