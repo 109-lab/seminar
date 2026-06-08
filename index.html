@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第2回 教育実践「アップデートセミナー」</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+    :root {
+      --primary: #0057b8;
+      --accent: #00b4d8;
+      --accent2: #ffe600;
+      --light: #eef6ff;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-light: #4b5563;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.8;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background-color: #f0f6ff;
+      color: var(--text);
+      padding: 80px 20px 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* 幾何学SVG背景 */
+    .hero-geo {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      padding: 6px 22px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+    .hero-title-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      text-align: left;
+      margin-bottom: 4px;
+    }
+    .hero-title-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+    }
+    .hero-title-side-line {
+      width: 1.5px;
+      flex: 1;
+      background: var(--primary);
+      opacity: 0.25;
+    }
+    .hero-title-side-text {
+      writing-mode: vertical-rl;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      color: var(--primary);
+      opacity: 0.45;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2rem, 7vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+    }
+    .hero h1 .highlight {
+      display: block;
+      color: var(--primary);
+      position: relative;
+    }
+    .hero h1 em {
+      font-style: normal;
+      font-weight: 900;
+      color: #d4a000;
+    }
+    .hero-catch {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      color: #334155;
+      margin: 20px auto 36px;
+      max-width: 600px;
+      line-height: 2.2;
+      letter-spacing: 0.06em;
+    }
+    .hero-meta {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 48px auto 36px;
+      text-align: left;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding-left: 16px;
+      border-left: 3px solid var(--primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .hero-meta-item span {
+      font-size: 0.7rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      min-width: 52px;
+    }
+
+    .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 4px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+    .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 16px rgba(0,87,184,0.3); }
+    .btn-secondary { background: white; color: var(--primary); border: 2px solid var(--primary); }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 72px 20px; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: inline-block;
+      background: var(--accent2);
+      padding: 3px 14px;
+      border-radius: 2px;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 32px;
+      line-height: 1.6;
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== ABOUT ===== */
+    .about { background: var(--light); }
+    .about-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      line-height: 2.2;
+      color: #222;
+      letter-spacing: 0.04em;
+    }
+    .tags {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px;
+    }
+    .tag {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--primary);
+      color: white;
+      border-radius: 2px;
+      padding: 5px 16px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== SPEAKERS ===== */
+    .speakers { background: white; }
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+    .speaker-card {
+      border: 2px solid var(--primary);
+      border-radius: 4px;
+      padding: 36px 32px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      background: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .speaker-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    .speaker-card:hover { box-shadow: 0 10px 36px rgba(0,87,184,0.15); transform: translateY(-3px); }
+
+    /* 講師イニシャルアバター */
+    .speaker-avatar {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+      letter-spacing: 0;
+    }
+    .speaker-area {
+      display: inline-block;
+      background: var(--accent2);
+      color: var(--primary);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 12px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+    }
+    .speaker-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      letter-spacing: 0.06em;
+    }
+    .speaker-role {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* ===== PROGRAM ===== */
+    .program { background: var(--light); }
+    .program-list { display: flex; flex-direction: column; gap: 0; }
+    .program-item {
+      display: flex;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid #cdd8ea;
+      align-items: flex-start;
+    }
+    .program-item:last-child { border-bottom: none; }
+    .program-time {
+      min-width: 115px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      padding-top: 3px;
+      letter-spacing: 0.04em;
+    }
+    .program-marker {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .program-content { flex: 1; }
+    .program-title-main {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
+    }
+    .program-desc {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    .program-break {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #cdd8ea;
+      color: #555;
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 7px 16px;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== PRICE ===== */
+    .price { background: white; }
+    .price-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .price-card {
+      border-radius: 4px;
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .price-card.general { background: var(--primary); color: white; box-shadow: 0 8px 24px rgba(0,87,184,0.25); }
+    .price-card.student { background: var(--light); color: var(--primary); border: 2px solid var(--accent); }
+    .price-card.online { background: var(--accent2); color: #003f8a; border: 2px solid #d4b800; }
+    .price-card-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: 0.1em;
+      opacity: 0.85;
+    }
+    .price-card-amount {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .price-note {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 12px;
+      line-height: 1.9;
+    }
+
+    /* ===== VENUE ===== */
+    .venue { background: var(--light); }
+    .venue-box {
+      background: white;
+      border-radius: 4px;
+      border: 2px solid #cdd8ea;
+      padding: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .venue-info { flex: 1; min-width: 220px; }
+    .venue-info h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .venue-info dl { display: flex; flex-direction: column; gap: 10px; }
+    .venue-info dt {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .venue-info dd {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      color: #333;
+      margin-left: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e5ebf4;
+    }
+    .venue-map {
+      flex: 1; min-width: 220px;
+      background: #dde4ee;
+      border-radius: 4px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      background-color: #f0f6ff;
+      color: var(--text);
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.7;
+      letter-spacing: 0.07em;
+      color: var(--primary);
+      position: relative;
+    }
+    .cta p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      color: #334155;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .btn-white { background: var(--primary); color: white; font-weight: 700; box-shadow: 0 4px 16px rgba(0,87,184,0.25); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #002f70;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 28px 20px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      border-top: 4px solid var(--accent2);
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .hero { padding: 60px 20px 50px; }
+      .program-item { flex-direction: column; gap: 6px; }
+      .program-time { min-width: unset; }
+      .program-marker { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- 幾何学模様SVG -->
+  <svg class="hero-geo" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 500">
+    <!-- グリッドライン -->
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="150" y1="0" x2="150" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="300" y1="0" x2="300" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="450" y1="0" x2="450" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="600" y1="0" x2="600" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="750" y1="0" x2="750" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="900" y1="0" x2="900" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="1050" y1="0" x2="1050" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <!-- 斜めライン -->
+    <line x1="0" y1="0" x2="500" y2="500" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <line x1="200" y1="0" x2="700" y2="500" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <line x1="700" y1="0" x2="1200" y2="500" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <line x1="900" y1="0" x2="1200" y2="300" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <!-- 大きな円（輪郭のみ） -->
+    <circle cx="980" cy="80" r="180" fill="none" stroke="#0057b8" stroke-width="1" stroke-opacity="0.1"/>
+    <circle cx="980" cy="80" r="110" fill="none" stroke="#0057b8" stroke-width="0.8" stroke-opacity="0.1"/>
+    <circle cx="980" cy="80" r="50" fill="none" stroke="#00b4d8" stroke-width="1" stroke-opacity="0.15"/>
+    <!-- 左の幾何学 -->
+    <circle cx="120" cy="380" r="120" fill="none" stroke="#00b4d8" stroke-width="1" stroke-opacity="0.12"/>
+    <circle cx="120" cy="380" r="70" fill="none" stroke="#0057b8" stroke-width="0.8" stroke-opacity="0.1"/>
+    <!-- 三角形 -->
+    <polygon points="60,10 130,10 95,70" fill="none" stroke="#ffe600" stroke-width="1.2" stroke-opacity="0.35"/>
+    <polygon points="1100,400 1180,400 1140,460" fill="none" stroke="#ffe600" stroke-width="1.2" stroke-opacity="0.3"/>
+    <!-- 小さな正方形（斜め） -->
+    <rect x="400" y="30" width="30" height="30" fill="none" stroke="#0057b8" stroke-width="1" stroke-opacity="0.18" transform="rotate(30 415 45)"/>
+    <rect x="820" y="420" width="24" height="24" fill="none" stroke="#00b4d8" stroke-width="1" stroke-opacity="0.2" transform="rotate(20 832 432)"/>
+    <rect x="200" y="60" width="18" height="18" fill="none" stroke="#ffe600" stroke-width="1.2" stroke-opacity="0.35" transform="rotate(45 209 69)"/>
+    <!-- ドット -->
+    <circle cx="300" cy="400" r="4" fill="#0057b8" fill-opacity="0.12"/>
+    <circle cx="450" cy="60"  r="4" fill="#00b4d8" fill-opacity="0.18"/>
+    <circle cx="750" cy="440" r="5" fill="#ffe600" fill-opacity="0.4"/>
+    <circle cx="1100" cy="200" r="4" fill="#0057b8" fill-opacity="0.12"/>
+    <circle cx="60" cy="200" r="3" fill="#00b4d8" fill-opacity="0.2"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-badge">第2回　アップデートセミナー</div>
+    <div class="hero-title-wrap">
+      <div class="hero-title-side">
+        <div class="hero-title-side-line"></div>
+        <div class="hero-title-side-text">UPDATE SEMINAR</div>
+        <div class="hero-title-side-line"></div>
+      </div>
+      <h1>
+        <span class="highlight">教師の<em>やり方</em>と<br><em>あり方</em>をアップデート</span>
+      </h1>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span>日時</span>
+        2025年8月1日（金）13:30〜17:00
+      </div>
+      <div class="hero-meta-item">
+        <span>会場</span>
+        テクスポート今治　2階会議室
+      </div>
+      <div class="hero-meta-item">
+        <span>夜の部</span>
+        懇親会あり
+      </div>
+    </div>
+    <div class="btn-group">
+      <a href="#apply" class="btn btn-primary">参加申し込みはこちら</a>
+      <a href="#program" class="btn btn-secondary">プログラムを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <h2 class="section-title">このセミナーについて</h2>
+    <p class="about-text">
+      愛媛×長崎、公立×私立という異なる"現場のリアル"を持つ2人の講師が、
+      授業づくり・学級経営・探究・教師としての姿勢など、現場での試行錯誤から見えてきた実践や、
+      次の一歩につながる提案を共有するセミナーです。<br><br>
+      どちらの講師もコミュニティづくりを広める実践者として、挑戦や工夫を等身大で語ります。
+      さらに、参加者3名によるライトニングトークでは、多様な現場のリアルな実践が持ち寄られ、
+      教師としての技術と価値観をアップデートする学びの場となります。
+    </p>
+    <div class="tags">
+      <span class="tag">授業づくり</span>
+      <span class="tag">学級経営</span>
+      <span class="tag">探究</span>
+      <span class="tag">コミュニティづくり</span>
+      <span class="tag">教師のあり方</span>
+      <span class="tag">ライトニングトーク</span>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKERS -->
+<section class="speakers">
+  <div class="section-inner">
+    <div class="section-label">Speakers</div>
+    <h2 class="section-title">講師紹介</h2>
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <div class="speaker-avatar">宮</div>
+        <span class="speaker-area">愛媛・私立</span>
+        <div class="speaker-name">宮谷 拓也 氏</div>
+        <div class="speaker-role">
+          FC今治高校里山校 数学コーチ<br>
+          CROSSROAD 代表
+        </div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar">岩</div>
+        <span class="speaker-area">長崎・公立</span>
+        <div class="speaker-name">岩永 将大 氏</div>
+        <div class="speaker-role">
+          NPO法人 教育新未来 理事長<br>
+          長崎県公立小学校教員
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="section-inner">
+    <div class="section-label">Program</div>
+    <h2 class="section-title">プログラム</h2>
+    <div class="program-list">
+      <div class="program-item">
+        <div class="program-time">13:30〜13:40</div>
+        <div class="program-marker"></div>
+        <div class="program-content">
+          <div class="program-title-main">オープニング</div>
+          <div class="program-desc">今日の目的共有／講師紹介</div>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">13:40〜14:40</div>
+        <div class="program-marker"></div>
+        <div class="program-content">
+          <div class="program-title-main">第1部｜やり方（How）</div>
+          <div class="program-desc">授業づくり・学級経営・探究など、現場での試行錯誤から見えてきた実践や提案を紹介。</div>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">14:40〜14:50</div>
+        <div class="program-marker" style="background:#aab8cc;"></div>
+        <div class="program-content">
+          <div class="program-break">― 休憩 ―</div>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">14:50〜15:50</div>
+        <div class="program-marker"></div>
+        <div class="program-content">
+          <div class="program-title-main">第2部｜あり方（Being）</div>
+          <div class="program-desc">教師としての姿勢、葛藤、選択、コミュニティづくりなど、等身大の"あり方"を共有。</div>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">15:50〜16:00</div>
+        <div class="program-marker" style="background:#aab8cc;"></div>
+        <div class="program-content">
+          <div class="program-break">― 休憩 ―</div>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">16:00〜16:25</div>
+        <div class="program-marker"></div>
+        <div class="program-content">
+          <div class="program-title-main">ライトニングトーク（5分×3名）</div>
+          <div class="program-desc">参加者による"現場のリアル"な実践紹介。</div>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">16:25〜16:55</div>
+        <div class="program-marker"></div>
+        <div class="program-content">
+          <div class="program-title-main">クロストーク（講師2名）</div>
+          <div class="program-desc">愛媛×長崎、公立×私立の視点から、実践と価値観の共通点・違い・可能性を語る時間。</div>
+        </div>
+      </div>
+      <div class="program-item">
+        <div class="program-time">16:55〜17:00</div>
+        <div class="program-marker"></div>
+        <div class="program-content">
+          <div class="program-title-main">クロージング</div>
+          <div class="program-desc">まとめ／明日からの現場に持ち帰るヒント</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price" id="apply">
+  <div class="section-inner">
+    <div class="section-label">Fee</div>
+    <h2 class="section-title">参加費</h2>
+    <div class="price-cards">
+      <div class="price-card general">
+        <div class="price-card-label">一　般</div>
+        <div class="price-card-amount">¥1,500</div>
+      </div>
+      <div class="price-card student">
+        <div class="price-card-label">学　生</div>
+        <div class="price-card-amount">¥1,000</div>
+      </div>
+      <div class="price-card online">
+        <div class="price-card-label">映像配信</div>
+        <div class="price-card-amount">¥3,000</div>
+      </div>
+    </div>
+    <p class="price-note">
+      ※ 懇親会は別途費用が必要です。<br>
+      ※ お申し込みフォームのリンクは近日公開予定です。
+    </p>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="venue">
+  <div class="section-inner">
+    <div class="section-label">Venue</div>
+    <h2 class="section-title">会場案内</h2>
+    <div class="venue-box">
+      <div class="venue-info">
+        <h3>テクスポート今治　2階会議室</h3>
+        <dl>
+          <dt>Date</dt>
+          <dd>2025年8月1日（金）</dd>
+          <dt>Time</dt>
+          <dd>13:30〜17:00（開場 13:15）</dd>
+          <dt>After Party</dt>
+          <dd>夜：懇親会（本編）</dd>
+        </dl>
+      </div>
+      <div class="venue-map">地図は近日公開予定</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <svg class="hero-geo" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 500">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="150" y1="0" x2="150" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="300" y1="0" x2="300" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="450" y1="0" x2="450" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="600" y1="0" x2="600" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="750" y1="0" x2="750" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="900" y1="0" x2="900" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="1050" y1="0" x2="1050" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="500" x2="500" y2="0" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <line x1="300" y1="500" x2="800" y2="0" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <line x1="700" y1="500" x2="1200" y2="0" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <circle cx="200" cy="100" r="160" fill="none" stroke="#0057b8" stroke-width="1" stroke-opacity="0.1"/>
+    <circle cx="200" cy="100" r="90" fill="none" stroke="#00b4d8" stroke-width="0.8" stroke-opacity="0.12"/>
+    <circle cx="1050" cy="380" r="130" fill="none" stroke="#0057b8" stroke-width="1" stroke-opacity="0.1"/>
+    <circle cx="1050" cy="380" r="65" fill="none" stroke="#00b4d8" stroke-width="0.8" stroke-opacity="0.12"/>
+    <polygon points="1100,20 1170,20 1135,75" fill="none" stroke="#ffe600" stroke-width="1.2" stroke-opacity="0.35"/>
+    <polygon points="30,400 100,400 65,460" fill="none" stroke="#ffe600" stroke-width="1.2" stroke-opacity="0.3"/>
+    <rect x="560" y="420" width="28" height="28" fill="none" stroke="#0057b8" stroke-width="1" stroke-opacity="0.18" transform="rotate(25 574 434)"/>
+    <circle cx="900" cy="60"  r="4" fill="#00b4d8" fill-opacity="0.2"/>
+    <circle cx="350" cy="440" r="4" fill="#0057b8" fill-opacity="0.12"/>
+    <circle cx="600" cy="250" r="5" fill="#ffe600" fill-opacity="0.35"/>
+  </svg>
+  <div class="section-inner">
+    <h2>現場のリアルを持ち寄り、<br>ともにアップデートしよう。</h2>
+    <p>参加者の皆さんと一緒につくる学びの場です。ぜひご参加ください。</p>
+    <a href="#" class="btn btn-white">参加申し込みはこちら（近日公開）</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>第2回 教育実践「アップデートセミナー」 &copy; 2025</p>
+</footer>
+
+</body>
+</html>
