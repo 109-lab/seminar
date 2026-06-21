@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>参加者の声｜第1回 アップデートセミナー</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+    :root {
+      --primary: #0057b8;
+      --accent: #00b4d8;
+      --accent2: #ffe600;
+      --light: #eef6ff;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-light: #4b5563;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    .page-header {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 280px; height: 280px;
+      background: rgba(255,230,0,0.12);
+      border-radius: 50%;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -40px;
+      width: 300px; height: 300px;
+      background: rgba(0,180,216,0.15);
+      border-radius: 50%;
+    }
+    .page-header-inner { position: relative; z-index: 1; }
+    .page-header-badge {
+      display: inline-block;
+      background: var(--accent2);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 4px 16px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 0.88rem;
+      opacity: 0.8;
+      letter-spacing: 0.06em;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      position: absolute;
+      top: 20px; left: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      z-index: 2;
+    }
+    .back-link:hover { color: white; }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ===== SNS CARD ===== */
+    .voice-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(0,87,184,0.08);
+      border: 1px solid #e5edf8;
+    }
+    .voice-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .voice-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+    .voice-meta {}
+    .voice-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .voice-attr {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+    }
+    .voice-body {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.95rem;
+      line-height: 2.1;
+      color: #222;
+      white-space: pre-wrap;
+    }
+    .voice-footer {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #eef2f8;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .voice-tag {
+      background: var(--light);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 30px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #002f70;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.82rem;
+      border-top: 4px solid var(--accent2);
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <a href="index.html" class="back-link">&#8592; セミナーHPに戻る</a>
+  <div class="page-header-inner">
+    <div class="page-header-badge">第1回 アップデートセミナー</div>
+    <h1>参加者の声</h1>
+    <p>2026年1月開催｜参加者からいただいたご感想</p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <div class="voice-card">
+    <div class="voice-card-header">
+      <div class="voice-avatar">M</div>
+      <div class="voice-meta">
+        <div class="voice-name">M.Y さん</div>
+        <div class="voice-attr">小学校教諭</div>
+      </div>
+    </div>
+    <div class="voice-body">岩永先生の講座では、次期学習指導要領への対応として、多様性の包摂・深い学び・実現可能性の確保といった視点を具体的にイメージすることができました。子供たちが活き活きと学ぶ姿や、初任者への寄り添い、研究主任として率先垂範する実践から、校内で行動につなげるための大きな刺激をいただきました。
+
+宮谷先生からは、転職のご経緯や投げかけていただいた問いを通じて、教師の仕事・目的・教育観について深く考える機会をいただきました。「問いを立てる」「未来を創る」「学びのプロ」といった教師のあり方を自分ごととして捉え、より良い実践につなげていきたいと思います。グループディスカッションでは全国の先生方と意見を共有し、新たな視点を得ることができました。
+
+お二人の実践と熱量から多くの学びをいただき、新学期がますます楽しみになりました。年明けのお忙しい中、学習会を開催してくださり、誠にありがとうございました。</div>
+    <div class="voice-footer">
+      <span class="voice-tag">授業づくり</span>
+      <span class="voice-tag">教師のあり方</span>
+      <span class="voice-tag">学級経営</span>
+    </div>
+  </div>
+
+  <div class="voice-card">
+    <div class="voice-card-header">
+      <div class="voice-avatar">O</div>
+      <div class="voice-meta">
+        <div class="voice-name">O.D さん</div>
+        <div class="voice-attr">小学校教諭</div>
+      </div>
+    </div>
+    <div class="voice-body">インプットとアウトプットのバランスが素晴らしいセミナーでした。
+
+岩永先生のお話では、次期学習指導要領に向けた実践に刺激を受けました。特に印象に残ったのが「学級集団の統率」です。働きアリの法則をもとに、４月・５月でルールを教えてできている子を褒め確認していくことで「素直に聞く子」が増えるという取り組みは、多様性の包摂にもつながると感じました。来年の４月に「学級のルール作り」をぜひ実践したいと思います。
+
+宮谷先生のお話では、多様な学びの場を創り続けていることへの感謝とともに、「利己的利他主義」の考え方が特に心に響きました。みやっち先生との出会いを通じて「学ぶ楽しさ」を知り、この２年間で大きく成長できました。「子どもの成長を見ること」が自分の心を満たすと気づいてからは、学び・実践・振り返りのサイクルを繰り返す中で自己効力感が高まり、常にワクワクできる自分へと変わることができました。グループディスカッションでも、以前なら臆していた初対面の方に自分から話しかけられたことが、自身の成長を実感させてくれました。
+
+お二人の先生、ありがとうございました。第２回の開催を心よりお待ちしております。</div>
+    <div class="voice-footer">
+      <span class="voice-tag">学級経営</span>
+      <span class="voice-tag">教師のあり方</span>
+      <span class="voice-tag">自己成長</span>
+    </div>
+  </div>
+
+  <div class="voice-card">
+    <div class="voice-card-header">
+      <div class="voice-avatar">S</div>
+      <div class="voice-meta">
+        <div class="voice-name">S.H さん</div>
+        <div class="voice-attr">小学校教諭</div>
+      </div>
+    </div>
+    <div class="voice-body">年始のお忙しい中、貴重なお話をありがとうございました。
+
+教員５年目を迎え、「こういう教師でありたい」という姿を言語化したいという思いでこのセミナーに参加しました。
+
+岩永先生の実践からは、見通しをもって学級運営・授業・研究主任としての提案を一本の筋でつなげていく「確立された教師像」を感じました。私自身も授業づくりは意識してきましたが、学級運営には課題が多く、先生のお話から「教師がいなくても自分で考えられる子どもを育てたい」という根底にある思いが、あの子どもたちの姿を生み出しているのだと気づかされました。
+
+宮谷先生からいただいた「主語を自分に戻す」という言葉と問いかけは、これまで言語化できずにいた自分の教師像を掘り下げるきっかけになりました。
+
+またぜひ学ばせていただける機会をお待ちしております。ありがとうございました。</div>
+    <div class="voice-footer">
+      <span class="voice-tag">教師のあり方</span>
+      <span class="voice-tag">学級経営</span>
+      <span class="voice-tag">授業づくり</span>
+    </div>
+  </div>
+
+  <div class="voice-card">
+    <div class="voice-card-header">
+      <div class="voice-avatar">N</div>
+      <div class="voice-meta">
+        <div class="voice-name">N.H さん</div>
+        <div class="voice-attr">小学校教諭</div>
+      </div>
+    </div>
+    <div class="voice-body">宮谷先生のお話を聞いて、教師の在り方を問い直しました。
+「あなたはどうしたいの？」この教師の問いが、人生を舵取りする子どもを育てることになると改めて考えました。
+
+また、改めて教師の魅力を問われると手が止まりました。子どもが〜。地域が〜と主語を自分にしていないことに気づきました。自分はどうしたいか？自分自身を主語にしていきたいです。
+
+また、宮谷先生のライフステージのチェンジに刺激を受けました。宮谷先生自身が、自分の人生の舵取りをする。この舵取りが、大変重要だと考えました。
+
+「自分が満たされるときはいつか？」年明けに重要な問いを考えることができてよかったです！</div>
+    <div class="voice-footer">
+      <span class="voice-tag">教師のあり方</span>
+      <span class="voice-tag">自己成長</span>
+      <span class="voice-tag">問いを立てる</span>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>第2回 教育実践「アップデートセミナー」 &copy; 2026</p>
+</footer>
+
+</body>
+</html>
