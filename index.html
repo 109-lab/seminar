@@ -472,6 +472,22 @@
     }
     .btn-white { background: var(--primary); color: white; font-weight: 700; box-shadow: 0 4px 16px rgba(0,87,184,0.25); }
 
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .zouseki-blink {
+      animation: blink 1.2s ease-in-out infinite;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #c0392b;
+      letter-spacing: 0.08em;
+      text-align: center;
+      display: block;
+      margin-bottom: 12px;
+    }
+
     /* ===== FOOTER ===== */
     footer {
       background: #002f70;
@@ -651,11 +667,11 @@
         懇親会あり
       </div>
     </div>
+    <span class="zouseki-blink" style="color:white;">＼ 7席増席決定 ／</span>
     <div class="btn-group">
       <a href="#program" class="btn btn-secondary">プログラムを見る</a>
       <a href="https://forms.gle/eXwaQMto6j9qzfmk6" class="btn btn-primary">参加申し込みはこちら</a>
     </div>
-    <p style="margin-top:14px; font-family:'Noto Sans JP',sans-serif; font-size:1rem; font-weight:700; color:#ffe600; letter-spacing:0.08em; text-shadow:0 1px 4px rgba(0,0,0,0.3);">🎉 増席決定！あと7席受付中</p>
   </div>
 </section>
 
@@ -900,7 +916,7 @@
       ※ 懇親会は別途費用が必要です。<br>
       ※ 下のボタンまたは上記リンクよりお申し込みください。
     </p>
-    <p style="margin-top:16px; font-family:'Noto Sans JP',sans-serif; font-size:1rem; font-weight:700; color:#c0392b; letter-spacing:0.08em; text-align:center;">🎉 増席決定！あと7席受付中</p>
+    <span class="zouseki-blink" style="margin-top:16px;">＼ 7席増席決定 ／</span>
   </div>
 </section>
 
