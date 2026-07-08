@@ -472,6 +472,35 @@
     }
     .btn-white { background: var(--primary); color: white; font-weight: 700; box-shadow: 0 4px 16px rgba(0,87,184,0.25); }
 
+    .zouseki-badge {
+      position: absolute;
+      top: -36px;
+      right: -26px;
+      width: 56px;
+      height: 56px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0057b8;
+      letter-spacing: 0.04em;
+      box-shadow: 0 0 0 3px #0057b8, 0 0 0 6px white, 0 0 0 9px #0057b8;
+      animation: none;
+      z-index: 10;
+    }
+    @keyframes badgePop {
+      0% { transform: scale(0) rotate(-20deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.2; }
@@ -668,9 +697,10 @@
       </div>
     </div>
     <div class="btn-group">
-      <a href="#program" class="btn btn-secondary">プログラムを見る</a>
-      <span class="zouseki-blink" style="color:#ffe600; margin:0;">＼ 7席増席決定 ／</span>
-      <a href="https://forms.gle/eXwaQMto6j9qzfmk6" class="btn btn-primary">参加申し込みはこちら</a>
+      <div style="position:relative; display:inline-block;">
+        <a href="https://forms.gle/eXwaQMto6j9qzfmk6" class="btn btn-primary">参加申し込みはこちら</a>
+        <div class="zouseki-badge">増席</div>
+      </div>
     </div>
   </div>
 </section>
