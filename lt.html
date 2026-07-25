@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ライトニングトーク登壇者紹介 | 第2回アップデートセミナー</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+    :root {
+      --primary: #0057b8;
+      --accent: #00b4d8;
+      --accent2: #ffe600;
+      --light: #eef6ff;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-light: #4b5563;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.8;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background-color: #f0f6ff;
+      color: var(--text);
+      padding: 80px 20px 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-geo {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      padding: 6px 22px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      color: #334155;
+      margin-top: 8px;
+    }
+
+    /* ===== SECTION ===== */
+    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 48px;
+      display: inline-block;
+      background: var(--accent2);
+      padding: 5px 18px;
+      border-radius: 2px;
+    }
+
+    /* ===== LT CARDS ===== */
+    .lt-section {
+      padding: 72px 20px;
+    }
+    .lt-section:nth-child(even) {
+      background: var(--light);
+    }
+    .lt-section:nth-child(odd) {
+      background: white;
+    }
+
+    .lt-card {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .lt-card.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .lt-photo {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--light);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 8px 32px rgba(0,87,184,0.15);
+    }
+    .lt-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .lt-body { flex: 1; }
+
+    .lt-number {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.18em;
+      margin-bottom: 8px;
+    }
+
+    .lt-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+    }
+    .lt-title::before {
+      content: '「';
+    }
+    .lt-title::after {
+      content: '」';
+    }
+
+    .lt-name-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      margin-top: 12px;
+    }
+    .lt-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.06em;
+    }
+    .lt-affiliation {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    .lt-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+      margin-bottom: 16px;
+      opacity: 0.4;
+    }
+
+    .lt-message {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.95rem;
+      line-height: 2.1;
+      color: #334155;
+      letter-spacing: 0.04em;
+    }
+
+    .lt-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .lt-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      border: 1.5px solid var(--primary);
+      border-radius: 4px;
+      padding: 6px 14px;
+      transition: background 0.2s;
+    }
+    .lt-link:hover {
+      background: var(--light);
+    }
+
+    /* ===== BACK LINK ===== */
+    .back-section {
+      padding: 48px 20px;
+      text-align: center;
+      background: #f0f6ff;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      border: 2px solid var(--primary);
+      border-radius: 4px;
+      padding: 12px 28px;
+      letter-spacing: 0.06em;
+      transition: background 0.2s;
+    }
+    .back-link:hover { background: var(--light); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #002f70;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 28px 20px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      border-top: 4px solid var(--accent2);
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .lt-card, .lt-card.reverse {
+        flex-direction: column;
+        align-items: center;
+      }
+      .lt-body { text-align: center; }
+      .lt-name-wrap { justify-content: center; flex-direction: column; gap: 4px; }
+      .lt-divider { margin: 16px auto; }
+      .lt-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-geo" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 500">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="150" y1="0" x2="150" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="300" y1="0" x2="300" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="450" y1="0" x2="450" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="600" y1="0" x2="600" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="750" y1="0" x2="750" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="900" y1="0" x2="900" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="1050" y1="0" x2="1050" y2="500" stroke="#0057b8" stroke-width="0.5" stroke-opacity="0.12"/>
+    <line x1="0" y1="0" x2="500" y2="500" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <line x1="700" y1="0" x2="1200" y2="500" stroke="#0057b8" stroke-width="0.6" stroke-opacity="0.08"/>
+    <circle cx="980" cy="80" r="180" fill="none" stroke="#0057b8" stroke-width="1" stroke-opacity="0.1"/>
+    <circle cx="980" cy="80" r="110" fill="none" stroke="#0057b8" stroke-width="0.8" stroke-opacity="0.1"/>
+    <circle cx="120" cy="380" r="120" fill="none" stroke="#00b4d8" stroke-width="1" stroke-opacity="0.12"/>
+    <polygon points="60,10 130,10 95,70" fill="none" stroke="#ffe600" stroke-width="1.2" stroke-opacity="0.35"/>
+    <polygon points="1100,400 1180,400 1140,460" fill="none" stroke="#ffe600" stroke-width="1.2" stroke-opacity="0.3"/>
+    <circle cx="750" cy="440" r="5" fill="#ffe600" fill-opacity="0.4"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-badge">第2回　アップデートセミナー</div>
+    <h1>ライトニングトーク<br>登壇者紹介</h1>
+    <p class="hero-sub">現場のリアルを5分で語る、3名の実践者たち</p>
+  </div>
+</section>
+
+<!-- LT 1: 山下楓馬 -->
+<section class="lt-section">
+  <div class="lt-card">
+    <div class="lt-photo">
+      <img src="yamashita.jpg" alt="山下楓馬" />
+    </div>
+    <div class="lt-body">
+      <div class="lt-number">SPEAKER 01</div>
+      <div class="lt-title">対話の輪をつなぐ</div>
+      <div class="lt-name-wrap">
+        <div>
+          <div class="lt-name">山下 楓馬 氏</div>
+          <div class="lt-affiliation">愛媛県西条市立大町小学校</div>
+        </div>
+      </div>
+      <div class="lt-divider"></div>
+      <p class="lt-message">今年の4月27日、西条市の教員6名でNPO団体を立ち上げました。立ち上げの思いやこれからの展望のことについてお話させていただきます。参加者の皆さんの中で、何かが湧き上がるような時間になればと思います。</p>
+      <div class="lt-links">
+        <a href="https://www.facebook.com/share/1SkSF3EjXD/?mibextid=wwXIfr" target="_blank" rel="noopener" class="lt-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LT 2: 大塚大地 -->
+<section class="lt-section">
+  <div class="lt-card reverse">
+    <div class="lt-photo">
+      <img src="ootsuka.jpg" alt="大塚大地" />
+    </div>
+    <div class="lt-body">
+      <div class="lt-number">SPEAKER 02</div>
+      <div class="lt-title">教室をアップデート</div>
+      <div class="lt-name-wrap">
+        <div>
+          <div class="lt-name">大塚 大地 氏</div>
+          <div class="lt-affiliation">今治市立乃万小学校</div>
+        </div>
+      </div>
+      <div class="lt-divider"></div>
+      <p class="lt-message">教育をアップデートしたのは、人とのつながりでした。私自身が「やってみよう」と思えた出会いと、その小さな一歩が教室を変えていった出来事をお話します。この5分が、誰かの「やってみよう」のきっかけになればうれしいです。</p>
+      <div class="lt-links">
+        <a href="https://www.facebook.com/share/1DYiWBeP6Q/?mibextid=wwXIfr" target="_blank" rel="noopener" class="lt-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LT 3: 準備中 -->
+<section class="lt-section">
+  <div class="lt-card">
+    <div class="lt-photo" style="background: linear-gradient(135deg, #aab8cc, #cdd8ea); display:flex; align-items:center; justify-content:center;">
+      <span style="font-family:'Noto Sans JP',sans-serif; font-size:0.82rem; color:white; font-weight:700; letter-spacing:0.08em;">準備中</span>
+    </div>
+    <div class="lt-body">
+      <div class="lt-number">SPEAKER 03</div>
+      <div class="lt-title" style="color:#aab8cc;">Coming Soon</div>
+      <div class="lt-name-wrap">
+        <div>
+          <div class="lt-name" style="color:#aab8cc;">近日公開予定</div>
+        </div>
+      </div>
+      <div class="lt-divider"></div>
+      <p class="lt-message" style="color:#aab8cc;">登壇者の情報は近日公開予定です。お楽しみに！</p>
+    </div>
+  </div>
+</section>
+
+<!-- BACK -->
+<div class="back-section">
+  <a href="index.html" class="back-link">&#8592; セミナートップに戻る</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>第2回 教育実践「アップデートセミナー」 &copy; 2026</p>
+</footer>
+
+</body>
+</html>
